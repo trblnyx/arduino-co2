@@ -12,11 +12,16 @@
  * All above must be included in any redistribution
  *
  * Modified by <hdcg@ier.unam.mx> to use SerialPlotter
- *
+ * Added Blinking LED 
  * ****************************************************/
 int sensorIn = A0;
 
+boolean led = false;
+
 void setup(){
+  pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, led=!led);
+
   Serial.begin(38400);
   // Set the default voltage of the reference voltage
   analogReference(DEFAULT);
@@ -24,6 +29,8 @@ void setup(){
 }
 
 void loop(){
+  digitalWrite(LED_BUILTIN, led=!led);
+
   //Read voltage
   int sensorValue = analogRead(sensorIn);
 
