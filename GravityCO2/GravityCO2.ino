@@ -13,6 +13,9 @@
  *
  * Modified by <hdcg@ier.unam.mx> to use SerialPlotter
  * Added Blinking LED 
+ * AREF connected to 3V3 
+ * Added a 4 digit 7-segment LED display
+ * 
  * ****************************************************/
 int sensorIn = A0;
 
@@ -21,10 +24,10 @@ boolean led = false;
 void setup(){
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, led=!led);
-
+  
   Serial.begin(38400);
-  // Set the default voltage of the reference voltage
-  analogReference(DEFAULT);
+  // Connect AREF pin to 3.3V pin 
+  analogReference(EXTERNAL);
   Serial.println("sensorValue voltage co2ppm");
 }
 
@@ -35,7 +38,7 @@ void loop(){
   int sensorValue = analogRead(sensorIn);
 
   // The analog signal is converted to a voltage
-  float voltage = sensorValue*(5000/1024.0);
+  float voltage = sensorValue*(3300/1024.0);
   if(voltage == 0)
   {
     Serial.println("Fault");
