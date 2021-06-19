@@ -88,9 +88,9 @@ void loop(){
     Serial.print(" ");
     Serial.print(concentration);
     //Serial.println("ppm");
+    cmaCO2.addData(concentration);
     Serial.print(" ");
     Serial.print(cmaCO2.avg());
-    cmaCO2.addData(concentration);
     display.showNumberDec(cmaCO2.avg());
     
     Serial.println();
