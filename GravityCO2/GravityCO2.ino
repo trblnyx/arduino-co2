@@ -15,12 +15,16 @@
  * Added Blinking LED 
  * AREF connected to 3V3 
  * Added a 4 digit 7-segment LED display
+ * Added CMA (Cumulative moving average)
  * 
  * ****************************************************/
 
 #include <TM1637Display.h>
+#include "cma.h"
 
 int sensorIn = A0;
+
+#define DELAY 1024
 
 boolean led = false;
 
@@ -29,18 +33,29 @@ boolean led = false;
 
 TM1637Display display(CLK, DIO);
 
+#define SAMPLES 60
+
+CMA cmaCO2(SAMPLES);
+
 void setup(){
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, led=!led);
 
   display.setBrightness(0x07);
   display.showNumberDec(8888);
-  delay(1024);
+  delay(DELAY);
   
   Serial.begin(38400);
+  Serial.println(F("***********************************"));
+  Serial.println(F("Test program for SEN0219 CO2 Sensor"));
+  Serial.println(F("(C) 2021, IER-UNAM"));
+  Serial.println(F("(C) 2021, <hdcg@ier.unam.mx>"));
+  Serial.println(F("***********************************"));
+  Serial.println();
+
   // Connect AREF pin to 3.3V pin 
   analogReference(EXTERNAL);
-  Serial.println("sensorValue voltage co2ppm");
+  Serial.println("sensorValue voltage co2ppm cma1min");
 }
 
 void loop(){
@@ -71,9 +86,14 @@ void loop(){
     // Serial.println("mv");
     //Print CO2 concentration
     Serial.print(" ");
-    Serial.println(concentration);
+    Serial.print(concentration);
     //Serial.println("ppm");
-    display.showNumberDec(concentration);
+    Serial.print(" ");
+    Serial.print(cmaCO2.avg());
+    cmaCO2.addData(concentration);
+    display.showNumberDec(cmaCO2.avg());
+    
+    Serial.println();
   }
-  delay(1024);
+  delay(DELAY);
 }
