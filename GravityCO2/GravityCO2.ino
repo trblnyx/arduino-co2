@@ -17,13 +17,25 @@
  * Added a 4 digit 7-segment LED display
  * 
  * ****************************************************/
+
+#include <TM1637Display.h>
+
 int sensorIn = A0;
 
 boolean led = false;
 
+#define CLK 6
+#define DIO 7
+
+TM1637Display display(CLK, DIO);
+
 void setup(){
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, led=!led);
+
+  display.setBrightness(0x07);
+  display.showNumberDec(8888);
+  delay(1024);
   
   Serial.begin(38400);
   // Connect AREF pin to 3.3V pin 
@@ -61,6 +73,7 @@ void loop(){
     Serial.print(" ");
     Serial.println(concentration);
     //Serial.println("ppm");
+    display.showNumberDec(concentration);
   }
   delay(1024);
 }
