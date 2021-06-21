@@ -9,9 +9,9 @@
 
 * S8LP Senseair
 
-## Use GLP 2.0 or later
+## Use GPL 2.0 or later
 
-(C) 2021, Héctor Daniel Cortés Gonzalez <hdcg@ier.unam.mx>
-(C) 2021, Instituto de Energías Renovables <http://www.ier.unam.mx/>
-(C) 2021, Universidad Nacional Autónoma de México <http://www.unam.mx/>
+* (C) 2021, Héctor Daniel Cortés Gonzalez <hdcg@ier.unam.mx>
+* (C) 2021, Instituto de Energías Renovables <http://www.ier.unam.mx/>
+* (C) 2021, Universidad Nacional Autónoma de México <http://www.unam.mx/>
 
