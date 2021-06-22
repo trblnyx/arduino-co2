@@ -4,6 +4,7 @@
 
 * SEN0219 DFRobot
 * T3022 Amphenol
+* SEN0220 DFRobot
 
 ## TODO:
 
