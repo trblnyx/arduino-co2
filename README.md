@@ -2,13 +2,11 @@
 
 ## Some CO2 sensors with Arduino for IER-UNAM 
 
-* SEN0219 DFRobot
-* T3022 Amphenol
-* SEN0220 DFRobot
-
-## TODO:
-
-* S8LP Senseair
+* DFRobot SEN0219 - Gravity Analog Infrared CO2 Sensor 
+* Winsen MH-Z14A - the one used by SEN0219
+* TelAire T3022 - IP65 CO2 Sensor for OEM Installation
+* DFRobot SEN0220 - Infrared CO2 Sensor 0-50000ppm 
+* SenseAir S8 - LP Miniature CO2 Sensor Module
 
 ## Use GPL 2.0 or later
 
