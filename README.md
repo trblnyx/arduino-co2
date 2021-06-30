@@ -8,6 +8,14 @@
 * DFRobot SEN0220 - Infrared CO2 Sensor 0-50000ppm 
 * SenseAir S8 - LP Miniature CO2 Sensor Module
 
+## 4-digit 7-segment LED display
+
+* Show CO2 ppm values in simple LED display
+
+## TODO
+
+* Make libraries for each sensor
+
 ## Use GPL 2.0 or later
 
 * (C) 2021, Héctor Daniel Cortés Gonzalez <hdcg@ier.unam.mx>
